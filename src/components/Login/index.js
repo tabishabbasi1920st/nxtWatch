@@ -26,8 +26,8 @@ const apiStatusConstants = {
 
 class Login extends Component {
   state = {
-    usernameInput: '',
-    passwordInput: '',
+    usernameInput: 'rahul',
+    passwordInput: 'rahul@2021',
     showPassword: false,
     apiStatus: apiStatusConstants.initial,
     errorMsg: '',
@@ -57,31 +57,36 @@ class Login extends Component {
       </WebsiteLogoContainer>
     )
 
-    const renderUsernameInputField = () => (
-      <LabelAndInputContainer>
-        <CustomLabel isDarkTheme={isDarkTheme} htmlFor="usernameInput">
-          USERNAME
-        </CustomLabel>
-        <CustomInput
-          isDarkTheme={isDarkTheme}
-          onChange={event => {
-            this.onChangeUsernameField(event)
-          }}
-          type="text"
-          id="usernameInput"
-          placeholder="USERNAME"
-        />
-      </LabelAndInputContainer>
-    )
+    const renderUsernameInputField = () => {
+      const {usernameInput} = this.state
+      return (
+        <LabelAndInputContainer>
+          <CustomLabel isDarkTheme={isDarkTheme} htmlFor="usernameInput">
+            USERNAME
+          </CustomLabel>
+          <CustomInput
+            value={usernameInput}
+            isDarkTheme={isDarkTheme}
+            onChange={event => {
+              this.onChangeUsernameField(event)
+            }}
+            type="text"
+            id="usernameInput"
+            placeholder="USERNAME"
+          />
+        </LabelAndInputContainer>
+      )
+    }
 
     const renderPasswordInputField = () => {
-      const {showPassword} = this.state
+      const {showPassword, passwordInput} = this.state
       return (
         <LabelAndInputContainer>
           <CustomLabel isDarkTheme={isDarkTheme} htmlFor="passwordInput">
             PASSWORD
           </CustomLabel>
           <CustomInput
+            value={passwordInput}
             isDarkTheme={isDarkTheme}
             onChange={event => {
               this.onChangePasswordField(event)

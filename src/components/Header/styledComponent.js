@@ -72,6 +72,7 @@ export const LogoutButton = styled.button`
   color: ${props => (props.isDarkTheme === true ? '#fff;' : '#3b82f6;')} @media
     screen and (max-width: 768px) {
     display: none;
+    cursor: pointer;
   }
 `
 
